@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="kucingImut.png" type="image/x-icon" />
+    <style>
+      html,
+      body {
+        overflow: hidden;
+      }
+      body {
+        overflow: scroll;
+        scrollbar-width: none; /* Firefox */
+        user-select: none;
+        background-image: url(https://static.vecteezy.com/system/resources/previews/015/409/166/original/cute-cartoon-town-street-with-a-shop-tree-bench-fence-street-lamp-city-street-background-illustration-vector.jpg);
+        background-size: cover;
+        background-position: center;
+      }
+      body::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Edge */
+      }
+      h1 {
+        text-align: center;
+        font-family: Poppins;
+        transition: 3s;
+        animation: melayang 3s infinite alternate;
+      }
+      .shadow {
+        z-index: -1;
+        transform: skewX(-55deg);
+        position: absolute;
+        margin-top: 23.1%;
+        left: 49%;
+        width: 230px;
+        height: 155px;
+        border-radius: 25px;
+        background-color: rgba(0, 0, 0, 0.182);
+      }
+      .garis {
+        z-index: 1;
+        position: absolute;
+        transform: skewX(-55deg);
+        margin-top: 290%;
+        left: 51%;
+        width: 35px;
+        height: 170px;
+        background-color: rgba(255, 255, 255, 0.497);
+      }
+      .garis2 {
+        z-index: 1;
+        position: absolute;
+        transform: skewX(-55deg);
+        margin-top: 253%;
+        left: 51%;
+        width: 55px;
+        height: 170px;
+        background-color: rgba(255, 255, 255, 0.497);
+      }
+      .garis3 {
+        z-index: 1;
+        position: absolute;
+        transform: skewX(-55deg);
+        margin-top: 100px;
+        left: 51%;
+        width: 55px;
+        height: 170px;
+        background-color: rgba(255, 255, 255, 0.497);
+
+        box-shadow: 0px 0px 100px white;
+      }
+      .garis4 {
+        z-index: 1;
+        position: absolute;
+        transform: skewX(-55deg);
+        margin-top: -70%;
+        left: 25%;
+        width: 55px;
+        height: 170px;
+        background-color: rgba(255, 255, 255, 0.497);
+        box-shadow: 0px 0px 100px white;
+      }
+      .container {
+        position: relative;
+        overflow: hidden;
+        font-family: poppins;
+        margin: auto;
+        border-radius: 20px;
+        background-color: rgb(16, 209, 119);
+        width: 250px;
+        height: 450px;
+        box-shadow: 25px 0px 0px rgb(12, 152, 87);
+      }
+      .kotak_hitam_wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .kotak_hitam {
+        position: relative;
+        overflow: hidden;
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 25px;
+        font-family: poppins;
+        color: white;
+        border-radius: 20px;
+        background-color: rgb(0, 0, 0);
+        width: 219px;
+        height: 150px;
+        transition: 0.5s;
+      }
+      .kelap-kelip {
+        animation: layar 0.7s forwards;
+      }
+      .circle {
+        overflow: hidden;
+        position: static;
+        margin-top: 25px;
+        margin-left: 10px;
+        font-family: poppins;
+
+        border-radius: 50%;
+
+        background-color: rgb(68, 68, 68);
+        width: 100px;
+        height: 100px;
+        z-index: 1;
+        box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.3);
+      }
+
+      .half-circle {
+        position: static;
+        width: 200px;
+        height: 70px;
+        background-color: rgb(36, 36, 36);
+        border-radius: 50%;
+        transform: rotate(180deg);
+
+        margin-left: -50%;
+        margin-top: 84%;
+      }
+      /* alat scannya */
+      .alat_scan {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        height: 120px;
+        width: 100px;
+        border-radius: 10%;
+        margin: -40% auto;
+        margin-left: 50%;
+      }
+      .square1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: grey;
+        width: 80px;
+        height: 100px;
+        border-radius: 10%;
+      }
+      .square2 {
+        background-color: white;
+        width: 60px;
+        height: 85px;
+        border-radius: 10%;
+      }
+
+      #botol {
+        position: absolute;
+        top: 75%;
+        cursor: grab;
+        transition: 0.2s;
+      }
+      #botol:active {
+        cursor: grabbing;
+        animation: goyang 0.5s infinite;
+      }
+      #botol img {
+        pointer-events: none;
+        user-select: none;
+      }
+      #botol2 {
+        position: absolute;
+        top: 49.5%;
+        left: 5%;
+        cursor: grab;
+        transition: 0.2s;
+      }
+      #botol2:active {
+        cursor: grabbing;
+        animation: goyang 0.5s infinite;
+      }
+      #botol2 img {
+        transform: scale(0.4);
+        pointer-events: none;
+        user-select: none;
+      }
+      #botol3 {
+        position: absolute;
+        top: 48%;
+        left: 13%;
+        cursor: grab;
+        transition: 0.2s;
+      }
+      #botol3:active {
+        cursor: grabbing;
+        animation: goyang 0.5s infinite;
+      }
+      #botol3 img {
+        transform: scale(0.4);
+        pointer-events: none;
+        user-select: none;
+      }
+      .fade {
+        animation: fade 1s;
+      }
+      .btn_refresh {
+        font-weight: bold;
+        position: absolute;
+        top: 10%;
+        left: 85%;
+        width: 100px;
+        height: 100px;
+
+        background-color: rgb(226, 61, 61);
+        border-radius: 25%;
+        font-family: poppins;
+        color: white;
+        border-width: 10px;
+      }
+      .btn_refresh:active {
+        background-color: rgb(63, 216, 96);
+      }
+
+      #iphone {
+        cursor: grab;
+        position: absolute;
+        margin-top: -50px;
+        left: 90%;
+        border-radius: 10px;
+        width: 45px;
+        height: 80px;
+        background-color: rgb(44, 225, 225);
+        border: 5px solid black;
+        box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.3);
+        transition: 0.2s;
+      }
+      #iphone:active {
+        cursor: grabbing;
+      }
+      .kamera {
+        position: static;
+        margin: 4px auto;
+        width: 20px;
+        height: 5px;
+        background-color: black;
+        border-radius: 50px;
+      }
+      .navigasi {
+        position: static;
+        margin-top: 143%;
+        width: 45px;
+        height: 7px;
+        background-color: black;
+      }
+      .kasur {
+        cursor: grab;
+        position: absolute;
+        margin-top: -19%;
+        left: 62%;
+        transform: scale(0.1);
+        transition: 0.2s;
+      }
+      .kasur:active {
+        transform: scale(1);
+      }
+      .light {
+        position: absolute;
+        top: 20%;
+        left: 25.5%;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        background-color: yellow;
+        box-shadow: 0px 0px 25px yellow;
+        transition: 0.2s;
+        animation: glitch 5s 5s infinite alternate;
+      }
+      /*animasi dawg*/
+      @keyframes layar {
+        0% {
+          background-color: black;
+        }
+        15% {
+          background-color: white;
+        }
+        35% {
+          background-color: black;
+        }
+        65% {
+          background-color: white;
+        }
+        95% {
+          background-color: black;
+        }
+        100% {
+          background-color: white;
+          color: black;
+          box-shadow: 0px 0px 50px white;
+        }
+      }
+      @keyframes glitch {
+        0% {
+          box-shadow: 0px 0px 25px yellow;
+        }
+        100% {
+          box-shadow: 0px 0px 250px yellow;
+        }
+      }
+      @keyframes goyang {
+        0% {
+          transform: rotate(0deg);
+        }
+        25% {
+          transform: rotate(45deg);
+        }
+        50% {
+          transform: rotate(-45deg);
+        }
+        75% {
+          transform: rotate(45deg);
+        }
+        100% {
+          transform: rotate(-45deg);
+        }
+      }
+      /*animasi fade*/
+      @keyframes fade {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacitiy: 0;
+        }
+      }
+      @keyframes melayang {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: scale(1.2);
+          color: white;
+        }
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Cash4Trash</title>
+  </head>
+  <body>
+    <audio id="soundBuang" src="botol_jatuh.mp3" preload="auto"></audio>
+    <audio id="soundHancur" src="hancur.mp3" preload="auto"></audio>
+    <audio id="soundMoney" src="money.mp3" preload="auto"></audio>
+    <audio id="soundScan" src="scan.mp3" preload="auto"></audio>
+    <audio id="soundLight" src="light.mp3" preload="auto"></audio>
+    <audio id="soundPick" src="pickup.mp3" preload="auto"></audio>
+
+    <h1>RVM SIMULATION</h1>
+    <div class="shadow"></div>
+    <div class="container">
+      <div class="kotak_hitam_wrap">
+        <div class="kotak_hitam" id="layar">
+          <p>Tap me!</p>
+          <div class="garis3"></div>
+          <div class="garis4"></div>
+        </div>
+
+        <div class="garis"></div>
+        <div class="garis2"></div>
+      </div>
+
+      <div class="circle" id="dropzone">
+        <div class="half-circle"></div>
+      </div>
+
+      <div class="alat_scan">
+        <div class="square1"><div class="square2" id="scan"></div></div>
+      </div>
+    </div>
+    <div id="botol" draggable="true">
+      <img src="botolPlastik.png" />
+    </div>
+    <div id="botol2" draggable="true">
+      <img src="botolPlastikSedang.png" />
+    </div>
+    <div id="botol3" draggable="true">
+      <img src="botolPlastikBesar.png" />
+    </div>
+    <div id="iphone" draggable="true">
+      <div class="kamera"></div>
+      <div class="navigasi"></div>
+    </div>
+    <div class="kasur" id="bed" draggable="true">
+      <img src="kasur.png" alt="" />
+    </div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+
+    <button onclick="location.reload()" class="btn_refresh">REFRESH</button>
+  </body>
+
+  <script>
+    //Pengvariable-an
+    const botol = document.getElementById("botol");
+    const botol2 = document.getElementById("botol2");
+    const botol3 = document.getElementById("botol3");
+    const dropzone = document.getElementById("dropzone");
+    const layar = document.getElementById("layar");
+    const suaraBuang = document.getElementById("soundBuang");
+    const suaraHancur = document.getElementById("soundHancur");
+    const suaraMoney = document.getElementById("soundMoney");
+    const suaraLight = document.getElementById("soundLight");
+    const suaraPick = document.getElementById("soundPick");
+
+    let isDragging = false;
+    let offsetX = 0;
+    let offsetY = 0;
+
+    botol.addEventListener("mousedown", (e) => {
+      isDragging = true;
+      suaraPick.currentTime = 1.5;
+      suaraPick.play();
+      setTimeout(() => {
+        suaraPick.pause();
+        suaraPick.currentTime = 0;
+      }, 1000);
+      e.preventDefault();
+      dropzone.style.backgroundColor = "lightgreen";
+      layar.textContent = "Put on the grey circle!";
+      offsetX = e.clientX - botol.offsetLeft;
+      offsetY = e.clientY - botol.offsetTop;
+      botol.style.cursor = "grabbing";
+    });
+
+    document.addEventListener("mouseup", () => {
+      if (isDragging) {
+        isDragging = false;
+        dropzone.style.backgroundColor = "#444444";
+        layar.textContent = "Good!";
+        botol.style.cursor = "grab";
+
+        const botolRect = botol.getBoundingClientRect();
+        const dropzoneRect = dropzone.getBoundingClientRect();
+
+        const isDropped =
+          botolRect.right > dropzoneRect.left &&
+          botolRect.left < dropzoneRect.right &&
+          botolRect.bottom > dropzoneRect.top &&
+          botolRect.top < dropzoneRect.bottom;
+
+        if (isDropped) {
+          botol.remove();
+
+          suaraBuang.currentTime = 0;
+          suaraBuang.play();
+
+          setTimeout(() => {
+            suaraBuang.pause();
+            suaraBuang.currentTime = 0; // reset ke awal
+          }, 1000);
+          suaraHancur.play();
+          suaraHancur.currentTime = 1;
+          setTimeout(() => {
+            suaraHancur.pause();
+            suaraHancur.currentTime = 1; // reset ke awal
+          }, 2000);
+
+          setTimeout(() => {
+            suaraMoney.play();
+          }, 3000);
+          setTimeout(() => {
+            layar.textContent = "You've got Rp200,00";
+          }, 3000);
+          setTimeout(() => {
+            layar.textContent = "You've got 1 points";
+          }, 5000);
+          setTimeout(() => {
+            layar.textContent = "Now scan the phone";
+          }, 6000);
+
+          // menunggu animasi fade selesai
+        }
+      }
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      if (isDragging) {
+        botol.style.left = e.clientX - offsetX + "px";
+        botol.style.top = e.clientY - offsetY + "px";
+      }
+    });
+
+    // ini bagian hapenya nanti di scan
+    const hape = document.getElementById("iphone");
+    const scan = document.getElementById("scan");
+    const suaraScan = document.getElementById("soundScan");
+
+    let isDraggingHape = false;
+    let offsetXHape = 0;
+    let offsetYHape = 0;
+
+    hape.addEventListener("mousedown", (e) => {
+      isDraggingHape = true;
+      e.preventDefault();
+      scan.style.backgroundColor = "#39ff14";
+      offsetXHape = e.clientX - hape.offsetLeft;
+      offsetYHape = e.clientY - hape.offsetTop;
+      hape.style.cursor = "grabbing";
+    });
+
+    document.addEventListener("mouseup", () => {
+      if (isDraggingHape) {
+        isDraggingHape = false;
+        scan.style.backgroundColor = "white";
+        layar.textContent = "There we go!";
+        hape.style.cursor = "grab";
+
+        const hapeRect = hape.getBoundingClientRect();
+        const scanRect = scan.getBoundingClientRect();
+
+        const isDroppedHape =
+          hapeRect.right > scanRect.left &&
+          hapeRect.left < scanRect.right &&
+          hapeRect.bottom > scanRect.top &&
+          hapeRect.top < scanRect.bottom;
+
+        if (isDroppedHape) {
+          suaraScan.play();
+          scan.style.backgroundColor = "red";
+          setTimeout(() => {
+            scan.style.backgroundColor = "white";
+          }, 1000);
+          layar.textContent = "Transfer successful!";
+        }
+      }
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      if (isDraggingHape) {
+        hape.style.left = e.clientX - offsetXHape + "px";
+        hape.style.top = e.clientY - offsetYHape + "px";
+      }
+    });
+    //kasur
+    const kasur = document.getElementById("bed");
+
+    let isDraggingkasur = false;
+    let offsetXkasur = 0;
+    let offsetYkasur = 0;
+
+    kasur.addEventListener("mousedown", (e) => {
+      isDraggingkasur = true;
+      e.preventDefault();
+      offsetXkasur = e.clientX - kasur.offsetLeft;
+      offsetYkasur = e.clientY - kasur.offsetTop;
+      kasur.style.cursor = "grabbing";
+    });
+
+    document.addEventListener("mouseup", () => {
+      if (isDraggingkasur) {
+        isDraggingkasur = false;
+        kasur.style.cursor = "grab";
+
+        const kasurRect = kasur.getBoundingClientRect();
+        const dropzoneRect = dropzone.getBoundingClientRect();
+
+        const isDroppedkasur =
+          kasurRect.right > dropzoneRect.left &&
+          kasurRect.left < dropzoneRect.right &&
+          kasurRect.bottom > dropzoneRect.top &&
+          kasurRect.top < dropzoneRect.bottom;
+
+        if (isDroppedkasur) {
+          layar.textContent = "Its to BIG dawg";
+        }
+      }
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      if (isDraggingkasur) {
+        kasur.style.left = e.clientX - offsetXkasur + "px";
+        kasur.style.top = e.clientY - offsetYkasur + "px";
+      }
+    });
+    //interaksi dengan layar
+    function nyalakanLayar() {
+      layar.removeEventListener("click", nyalakanLayar);
+      layar.classList.add("kelap-kelip");
+      suaraLight.currentTime = 0;
+      suaraLight.play();
+
+      setTimeout(() => {
+        suaraLight.pause();
+        suaraLight.currentTime = 0; // reset ke awal
+        layar.textContent = "Welcome to RVM!";
+        setTimeout(() => {
+          layar.textContent = "First,grab the bottle!";
+        }, 1000);
+      }, 1000);
+    }
+    layar.addEventListener("click", nyalakanLayar);
+    //
+    botol2.addEventListener("mousedown", (e) => {
+      isDraggingBotol2 = true;
+      suaraPick.currentTime = 1.5;
+      suaraPick.play();
+      setTimeout(() => {
+        suaraPick.pause();
+        suaraPick.currentTime = 0;
+      }, 1000);
+      e.preventDefault();
+      dropzone.style.backgroundColor = "lightgreen";
+      layar.textContent = "Put on the grey circle!";
+      offsetXBotol2 = e.clientX - botol2.offsetLeft;
+      offsetYBotol2 = e.clientY - botol2.offsetTop;
+      botol2.style.cursor = "grabbing";
+    });
+
+    document.addEventListener("mouseup", () => {
+      if (isDraggingBotol2) {
+        isDraggingBotol2 = false;
+        dropzone.style.backgroundColor = "#444444";
+        layar.textContent = "Good!";
+        botol2.style.cursor = "grab";
+
+        const botol2Rect = botol2.getBoundingClientRect();
+        const dropzoneRect = dropzone.getBoundingClientRect();
+
+        const isDroppedBotol2 =
+          botol2Rect.right > dropzoneRect.left &&
+          botol2Rect.left < dropzoneRect.right &&
+          botol2Rect.bottom > dropzoneRect.top &&
+          botol2Rect.top < dropzoneRect.bottom;
+
+        if (isDroppedBotol2) {
+          botol2.remove();
+
+          suaraBuang.currentTime = 0;
+          suaraBuang.play();
+
+          setTimeout(() => {
+            suaraBuang.pause();
+            suaraBuang.currentTime = 0; // reset ke awal
+          }, 1000);
+          suaraHancur.play();
+          suaraHancur.currentTime = 1;
+          setTimeout(() => {
+            suaraHancur.pause();
+            suaraHancur.currentTime = 1; // reset ke awal
+          }, 2000);
+
+          setTimeout(() => {
+            suaraMoney.play();
+          }, 3000);
+          setTimeout(() => {
+            layar.textContent = "You've got Rp250,00";
+          }, 3000);
+          setTimeout(() => {
+            layar.textContent = "You've got 2 points";
+          }, 5000);
+          setTimeout(() => {
+            layar.textContent = "Now scan the phone";
+          }, 6000);
+
+          // menunggu animasi fade selesai
+        }
+      }
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      if (isDraggingBotol2) {
+        botol2.style.left = e.clientX - offsetXBotol2 + "px";
+        botol2.style.top = e.clientY - offsetYBotol2 + "px";
+      }
+    });
+    botol3.addEventListener("mousedown", (e) => {
+      isDraggingBotol3 = true;
+      suaraPick.currentTime = 1.5;
+      suaraPick.play();
+      setTimeout(() => {
+        suaraPick.pause();
+        suaraPick.currentTime = 0;
+      }, 1000);
+      e.preventDefault();
+      dropzone.style.backgroundColor = "lightgreen";
+      layar.textContent = "Put on the grey circle!";
+      offsetXBotol3 = e.clientX - botol3.offsetLeft;
+      offsetYBotol3 = e.clientY - botol3.offsetTop;
+      botol3.style.cursor = "grabbing";
+    });
+
+    document.addEventListener("mouseup", () => {
+      if (isDraggingBotol3) {
+        isDraggingBotol3 = false;
+        dropzone.style.backgroundColor = "#444444";
+        layar.textContent = "Good!";
+        botol3.style.cursor = "grab";
+
+        const botol3Rect = botol3.getBoundingClientRect();
+        const dropzoneRect = dropzone.getBoundingClientRect();
+
+        const isDroppedBotol3 =
+          botol3Rect.right > dropzoneRect.left &&
+          botol3Rect.left < dropzoneRect.right &&
+          botol3Rect.bottom > dropzoneRect.top &&
+          botol3Rect.top < dropzoneRect.bottom;
+
+        if (isDroppedBotol3) {
+          botol3.remove();
+
+          suaraBuang.currentTime = 0;
+          suaraBuang.play();
+
+          setTimeout(() => {
+            suaraBuang.pause();
+            suaraBuang.currentTime = 0; // reset ke awal
+          }, 1000);
+          suaraHancur.play();
+          suaraHancur.currentTime = 1;
+          setTimeout(() => {
+            suaraHancur.pause();
+            suaraHancur.currentTime = 1; // reset ke awal
+          }, 2000);
+
+          setTimeout(() => {
+            suaraMoney.play();
+          }, 3000);
+          setTimeout(() => {
+            layar.textContent = "You've got Rp300,00";
+          }, 3000);
+          setTimeout(() => {
+            layar.textContent = "You've got 4 points";
+          }, 5000);
+          setTimeout(() => {
+            layar.textContent = "Now scan the phone";
+          }, 6000);
+
+          // menunggu animasi fade selesai
+        }
+      }
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      if (isDraggingBotol3) {
+        botol3.style.left = e.clientX - offsetXBotol3 + "px";
+        botol3.style.top = e.clientY - offsetYBotol3 + "px";
+      }
+    });
+  </script>
+</html>

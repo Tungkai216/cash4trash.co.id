@@ -1,0 +1,170 @@
+html,
+body {
+  overflow: hidden;
+}
+body {
+  overflow: scroll;
+  scrollbar-width: none; /* Firefox */
+  user-select: none;
+  background-image: url(https://static.vecteezy.com/system/resources/previews/015/409/166/original/cute-cartoon-town-street-with-a-shop-tree-bench-fence-street-lamp-city-street-background-illustration-vector.jpg);
+  background-size: cover;
+  background-position: center;
+}
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+h1 {
+  text-align: center;
+  font-family: Poppins;
+}
+.bayangan_mesin {
+  opacity: 0.3;
+  transform: skewX(200deg);
+  z-index: -1;
+  position: absolute;
+  left: 39%;
+  top: 78%;
+  border-radius: 20px;
+  width: 350px;
+  height: 50px;
+  background-color: black;
+}
+.container {
+  font-family: poppins;
+  margin: auto;
+  border-radius: 20px;
+  background-color: rgb(16, 209, 119);
+  width: 250px;
+  height: 450px;
+}
+.kotak_hitam_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.kotak_hitam {
+  margin-top: 25px;
+  font-family: poppins;
+  color: white;
+  border-radius: 20px;
+  background-color: rgb(0, 0, 0);
+  width: 219px;
+  height: 150px;
+}
+.circle {
+  overflow: hidden;
+  position: static;
+  margin-top: 25px;
+  margin-left: 10px;
+  font-family: poppins;
+
+  border-radius: 50%;
+
+  background-color: rgb(68, 68, 68);
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+.half-circle {
+  position: static;
+  width: 200px;
+  height: 70px;
+  background-color: rgb(36, 36, 36);
+  border-radius: 50%;
+  transform: rotate(180deg);
+
+  margin-left: -50%;
+  margin-top: 84%;
+}
+/* alat scannya */
+.alat_scan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  height: 120px;
+  width: 100px;
+  border-radius: 10%;
+  margin: -40% auto;
+  margin-left: 50%;
+}
+.square1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: grey;
+  width: 80px;
+  height: 100px;
+  border-radius: 10%;
+}
+.square2 {
+  background-color: white;
+  width: 60px;
+  height: 85px;
+  border-radius: 10%;
+}
+
+#botol {
+  position: absolute;
+  top: 75%;
+  cursor: grab;
+  transition: 0.2s;
+}
+#botol:active {
+  cursor: grabbing;
+  animation: goyang 0.5s infinite;
+}
+#botol img {
+  pointer-events: none;
+  user-select: none;
+}
+.fade {
+  animation: fade 1s;
+}
+.btn_refresh {
+  font-weight: bold;
+  position: absolute;
+  top: 10%;
+  left: 85%;
+  width: 100px;
+  height: 100px;
+
+  background-color: rgb(226, 61, 61);
+  border-radius: 25%;
+  font-family: poppins;
+  color: white;
+  border-width: 10px;
+}
+.btn_refresh:active {
+  background-color: rgb(63, 216, 96);
+}
+
+/*animasi dawg*/
+@keyframes goyang {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(45deg);
+  }
+  50% {
+    transform: rotate(-45deg);
+  }
+  75% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(-45deg);
+  }
+}
+/*animasi fade*/
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacitiy: 0;
+  }
+}
